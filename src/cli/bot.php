@@ -145,7 +145,7 @@ foreach ($config->feed as $feed)
     // Get post k
     $k = 0;
 
-    if ($posts = $client->getPosts([$feed->target], 1))
+    if ($posts = $twister->getPosts([$feed->target], 1))
     {
         if (isset($posts[0]['userpost']['k']))
         {
