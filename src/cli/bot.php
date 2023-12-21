@@ -143,21 +143,16 @@ foreach ($config->feed as $feed)
     );
 
     // Get post k
-    $k = 0;
+    $k = 1;
 
     if ($posts = $twister->getPosts([$feed->target], 1))
     {
-        if (isset($posts[0]['userpost']['k']))
+        if (isset($posts['result'][0]['userpost']['k']))
         {
-            $k = (int) $posts[0]['userpost']['k'] + 1;
+            $k = (int) $posts['result'][0]['userpost']['k'] + 1;
         }
-    }
 
-    if (!$k)
-    {
-        echo _('Could not get user post K value') . PHP_EOL;
-
-        continue;
+        else continue;
     }
 
     // Send each message to the twister account
