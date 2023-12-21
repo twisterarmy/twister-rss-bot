@@ -155,6 +155,9 @@ foreach ($config->feed as $feed)
         else continue;
     }
 
+    // Empty feed does not return null
+    else if (is_null($posts)) continue;
+
     // Send each message to the twister account
     foreach ($query->fetchAll() as $queue)
     {
