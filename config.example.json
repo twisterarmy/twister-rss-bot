@@ -21,7 +21,12 @@
             "queue":
             {
                 "limit":5
-            }
+            },
+            "keywords":
+            [
+                "News",
+                "news"
+            ]
         },
         {
             "source":"https://...",
@@ -29,7 +34,12 @@
             "queue":
             {
                 "limit":5
-            }
+            },
+            "keywords":
+            [
+                "News",
+                "news"
+            ]
         }
     ]
 }

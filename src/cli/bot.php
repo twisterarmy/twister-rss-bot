@@ -152,21 +152,52 @@ foreach ($config->feed as $feed)
             $k = (int) $posts['result'][0]['userpost']['k'] + 1;
         }
 
-        else continue;
+        else continue; // @TODO log
     }
 
-    // Empty feed does not return null
-    else if (is_null($posts)) continue;
+    else if (is_null($posts)) continue; // empty feed does not return null @TODO log
+
+    // Apply keywords
+    $search = [];
+    foreach ($feed->keywords as $keyword)
+    {
+        $search[] = sprintf(
+            ' %s', // make sure keyword is not a part of another construction by separator (e.g. URL)
+            $keyword
+        );
+    }
+
+    $replace = [];
+    foreach ($feed->keywords as $keyword)
+    {
+        $replace[] = sprintf(
+            ' #%s',
+            $keyword
+        );
+    }
 
     // Send each message to the twister account
     foreach ($query->fetchAll() as $queue)
     {
+        // Apply replacements
+        $message = str_replace(
+            $search,
+            $replace,
+            $queue->message
+        );
+
+        // Keep message original on length limit reached
+        if (mb_strlen($message) > 256)
+        {
+            $message = $queue->message;
+        }
+
         $errors = [];
 
         $twister->newPostMessage(
             $feed->target,
             $k,
-            $queue->message,
+            $message,
             $errors
         );
 
