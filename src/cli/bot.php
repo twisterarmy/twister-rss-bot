@@ -34,6 +34,13 @@ catch (Exception $e)
 // Connect DB
 try
 {
+    @mkdir(
+        sprintf(
+            '%s/../../storage',
+            __DIR__
+        )
+    );
+
     $database = new PDO(
         sprintf(
             'sqlite:%s',
