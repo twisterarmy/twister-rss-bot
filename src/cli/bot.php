@@ -224,5 +224,8 @@ foreach ($config->feed as $feed)
         sleep(
             $feed->queue->delay
         );
+
+        // Increase K value
+        $k++;
     }
 }
