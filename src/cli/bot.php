@@ -221,7 +221,7 @@ foreach ($config->feed as $feed)
         );
 
         // Apply delay
-        delay(
+        sleep(
             $feed->queue->delay
         );
     }
