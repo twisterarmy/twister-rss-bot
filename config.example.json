@@ -20,7 +20,8 @@
             "target":"user1",
             "queue":
             {
-                "limit":5
+                "limit":5,
+                "delay":5
             },
             "keywords":
             [
@@ -33,7 +34,8 @@
             "target":"user2",
             "queue":
             {
-                "limit":5
+                "limit":5,
+                "delay":5
             },
             "keywords":
             [

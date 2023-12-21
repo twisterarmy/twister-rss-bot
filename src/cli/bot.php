@@ -219,5 +219,10 @@ foreach ($config->feed as $feed)
                 $queue->id
             )
         );
+
+        // Apply delay
+        delay(
+            $feed->queue->delay
+        );
     }
 }
