@@ -167,7 +167,11 @@ foreach ($config->feed as $feed)
         // Get post k
         if (null === $posts = $twister->getPosts([$feed->target], 1))
         {
-            echo _('Could not receive post K value') . PHP_EOL;
+            echo sprintf(
+                _('Could not receive twister posts for "%s" %s'),
+                $feed->target,
+                PHP_EOL
+            );
 
             continue;
         }
