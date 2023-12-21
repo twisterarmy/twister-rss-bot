@@ -142,21 +142,6 @@ foreach ($config->feed as $feed)
         )
     );
 
-    // Get post k
-    $k = 1;
-
-    if ($posts = $twister->getPosts([$feed->target], 1))
-    {
-        if (isset($posts['result'][0]['userpost']['k']))
-        {
-            $k = (int) $posts['result'][0]['userpost']['k'] + 1;
-        }
-
-        else continue; // @TODO log
-    }
-
-    else if (is_null($posts)) continue; // empty feed does not return null @TODO log
-
     // Apply keywords
     $search = [];
     foreach ($feed->keywords as $keyword)
@@ -179,6 +164,24 @@ foreach ($config->feed as $feed)
     // Send each message to the twister account
     foreach ($query->fetchAll() as $queue)
     {
+        // Get post k
+        if (null === $posts = $twister->getPosts([$feed->target], 1))
+        {
+            echo _('Could not receive post K value') . PHP_EOL;
+
+            continue;
+        }
+
+        if (isset($posts['result'][0]['userpost']['k']))
+        {
+            $k = (int) $posts['result'][0]['userpost']['k'] + 1;
+        }
+
+        else
+        {
+            $k = 1; // initial post
+        }
+
         // Apply replacements
         $message = str_replace(
             $search,
@@ -224,8 +227,5 @@ foreach ($config->feed as $feed)
         sleep(
             $feed->queue->delay
         );
-
-        // Increase K value
-        $k++;
     }
 }
