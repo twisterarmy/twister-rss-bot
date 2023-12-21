@@ -1,0 +1,14 @@
+{
+    "name": "twisterarmy/twister-rss-bot",
+    "description": "RSS Bot for Twister P2P",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Twisterarmy\\TwisterRssBot\\": "src/"
+        }
+    },
+    "require": {
+        "twisterarmy/twister": "^1.0"
+    }
+}

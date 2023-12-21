@@ -1,0 +1,35 @@
+{
+    "twister":
+    {
+        "protocol":"http",
+        "host":"localhost",
+        "port":28332,
+        "username":"user",
+        "password":"pwd"
+    },
+    "sqlite":
+    {
+        "database":"database.sqlite",
+        "username":null,
+        "password":null
+    },
+    "feed":
+    [
+        {
+            "source":"https://...",
+            "target":"user1",
+            "queue":
+            {
+                "limit":5
+            }
+        },
+        {
+            "source":"https://...",
+            "target":"user2",
+            "queue":
+            {
+                "limit":5
+            }
+        }
+    ]
+}
