@@ -10,6 +10,21 @@ $config = json_decode(
     )
 );
 
+// Prevent multi-thread execution
+$semaphore = sem_get(
+    crc32(
+        __DIR__ . '.twister.rss.bot'
+    ),
+    1
+);
+
+if (false === sem_acquire($semaphore, true))
+{
+    exit(
+        _('Process locked by another thread') . PHP_EOL
+    );
+}
+
 // Connect twister
 try
 {
