@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70fb72082709cc5f798645656e8c4865",
+    "content-hash": "0e9fc435c964e8ccdec33f4a7be37798",
     "packages": [
         {
             "name": "twisterarmy/twister",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twisterarmy/twister-php.git",
-                "reference": "5761f1b90b25caf58fef7a1274b91af9c25a1831"
+                "reference": "c190ced5425620783c30e7baa76966270d282b33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twisterarmy/twister-php/zipball/5761f1b90b25caf58fef7a1274b91af9c25a1831",
-                "reference": "5761f1b90b25caf58fef7a1274b91af9c25a1831",
+                "url": "https://api.github.com/repos/twisterarmy/twister-php/zipball/c190ced5425620783c30e7baa76966270d282b33",
+                "reference": "c190ced5425620783c30e7baa76966270d282b33",
                 "shasum": ""
             },
             "type": "library",
@@ -33,9 +33,9 @@
             "description": "PHP 8 / Composer Tools for Twister API",
             "support": {
                 "issues": "https://github.com/twisterarmy/twister-php/issues",
-                "source": "https://github.com/twisterarmy/twister-php/tree/1.0.0"
+                "source": "https://github.com/twisterarmy/twister-php/tree/1.1.0"
             },
-            "time": "2023-12-21T03:22:50+00:00"
+            "time": "2023-12-22T02:29:33+00:00"
         }
     ],
     "packages-dev": [],
