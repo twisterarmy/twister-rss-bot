@@ -9,6 +9,6 @@
         }
     },
     "require": {
-        "twisterarmy/twister": "^1.0"
+        "twisterarmy/twister": "^1.1"
     }
 }

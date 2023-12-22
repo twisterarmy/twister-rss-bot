@@ -164,28 +164,6 @@ foreach ($config->feed as $feed)
     // Send each message to the twister account
     foreach ($query->fetchAll() as $queue)
     {
-        // Get post k
-        if (null === $posts = $twister->getPosts([$feed->target], 1))
-        {
-            echo sprintf(
-                _('Could not receive twister posts for "%s" %s'),
-                $feed->target,
-                PHP_EOL
-            );
-
-            continue;
-        }
-
-        if (isset($posts['result'][0]['userpost']['k']))
-        {
-            $k = (int) $posts['result'][0]['userpost']['k'] + 1;
-        }
-
-        else
-        {
-            $k = 1; // initial post
-        }
-
         // Apply replacements
         $message = str_replace(
             $search,
@@ -203,8 +181,8 @@ foreach ($config->feed as $feed)
 
         $twister->newPostMessage(
             $feed->target,
-            $k,
             $message,
+            null,
             $errors
         );
 
